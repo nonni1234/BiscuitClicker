@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./src/include/vue.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="game">
+    <div id="left"></div>
+    <div id="center">
+        <div id="container">
+            <img class="cookie" id="cookie" src="./src/images/cookie.png">
+        </div>
+        <div id="cps">CPS: {{ cps }}</div>
+            <div id="counter">{{ cookies }}</div>
+            
+    </div>
+
+    
+    <div id="right">
+        <div class="item" v-for="item in items">
+            <span class="index" style="display: none">{{ item.index }}</span>
+            <div class="item-left">
+            {{ item.title }}<br>
+            {{ item.price }}
+        </div>
+        <div class="item-right">
+            {{ item.amount }}
+        </div>
+
+        </div>
+    </div>
+    </div>
+
+    
+    
+</div>
+<script src="main.js"></script>
+</body>
+</html>
