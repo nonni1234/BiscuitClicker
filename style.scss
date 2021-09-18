@@ -47,25 +47,17 @@ html, body {
     width: 11rem;
     height: 11rem;
 
-    .cookie-clicked {
+    #cookie {
         max-width: 10rem;
         max-height: 10rem;
         transform-origin: center;
-        animation-name: onrelease;
-        animation-duration: 0.5s;
-        transform: scale(80%);
         margin: auto;
-        transition: width 0.5s, height 0.5s;
-    }
-    .cookie {
-        max-width: 10rem;
-        max-height: 10rem;
-        transform-origin: center;
-        animation-name: onrelease;
-        animation-duration: 0.5s;
-        transform: scale(100%);
-        margin: auto;
-        transition: width 0.5s, height 0.5s;
+        transition: .2s;
+
+        &:active:hover {
+            transform: scale(80%);
+            margin: auto;
+        }
     }
     
     

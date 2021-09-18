@@ -1,6 +1,7 @@
 function Increment() {
     app.cookies += app.cps;
 }
+/*
 function Clicked() {
     app.cookies += app.cpc;
     cookie.setAttribute("class","cookie-clicked");
@@ -8,6 +9,7 @@ function Clicked() {
 function Release() {
     cookie.setAttribute("class","cookie");
 }
+*/
 
 function Buy(e) {
     var target = e.target;
@@ -26,6 +28,7 @@ function Buy(e) {
 
 var app = new Vue({
     el: "#game",
+    
     data: {
         cookies: 0,
         cps: 0,
@@ -44,9 +47,15 @@ var app = new Vue({
                 price: 100,
                 amount: 0,
                 increase: 10
-    }
+            }
         ]
+    },
+
+    methods: {
+        /* - setja functions hérna - */
+
     }
+
 })
 
 var cookie = document.getElementById("cookie");
@@ -65,7 +74,8 @@ for (var i = 0; i < shoparr.length; i++) {
     shoparr[i].addEventListener("click", Buy);
 }
 
-/* --- */
+/* --- *
 
 cookie.addEventListener("mousedown",Clicked);
 cookie.addEventListener("mouseup",Release);
+*/
