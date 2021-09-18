@@ -54,6 +54,7 @@ html, body {
         margin: auto;
         transition: .2s;
 
+        /* on click */
         &:active:hover {
             transform: scale(80%);
             margin: auto;
