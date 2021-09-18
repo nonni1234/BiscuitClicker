@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+$display-font: 'Concert One', cursive;
+$main-color: rgba(0,0,255,0.5);
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: $display-font;
+}
+
+#game {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-areas: "left center right";
+    text-align: center;
+    margin: auto;
+    height: 100%;
+
+
+    #left {
+        grid-area: "left";
+    }
+
+    #center {
+        grid-area: "center";
+    }
+
+    #right {
+        grid-area: "right";
+        width: 100%;
+        height: 100%;
+        background: $main-color;
+    }
+
+    #counter {
+        font-size: 4em;
+    }
+}
+
+#container {
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    width: 11rem;
+    height: 11rem;
+
+    .cookie-clicked {
+        max-width: 10rem;
+        max-height: 10rem;
+        transform-origin: center;
+        animation-name: onrelease;
+        animation-duration: 0.5s;
+        transform: scale(80%);
+        margin: auto;
+        transition: width 0.5s, height 0.5s;
+    }
+    .cookie {
+        max-width: 10rem;
+        max-height: 10rem;
+        transform-origin: center;
+        animation-name: onrelease;
+        animation-duration: 0.5s;
+        transform: scale(100%);
+        margin: auto;
+        transition: width 0.5s, height 0.5s;
+    }
+    
+    
+}
+
+.item {
+    border: dotted 7px #f7f7f7;
+    color: #f7f7f7;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: "40% 60%";
+    grid-template-areas: "left right";
+    padding: 2em;
+    margin: .5em;
+    font-size: 1.5em;
+    text-align: center;
+    background: $main-color;
+
+    .item-left {
+        text-align: center;
+        grid-area: left;
+    }
+    .item-right {
+        text-align: right;
+        grid-area: right;
+    }
+}
