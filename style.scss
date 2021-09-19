@@ -8,28 +8,37 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: $display-font;
+    overflow: hidden;
 }
 
 #game {
     display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-template-areas: "left center right";
-    text-align: center;
     margin: auto;
-    height: 100%;
-
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
 
     #left {
         grid-area: "left";
+        z-index: 1;
+        background-color: darken($main-color, 10%);
     }
 
     #center {
         grid-area: "center";
-        margin-top: 15vh;
+        padding-top: 15vh;
+        background-color: $main-color;
+        overflow: hidden;
     }
 
     #right {
         grid-area: "right";
+        z-index: 1;
+        /* - scroll - */
+        overflow-y: scroll;
+        /* - dimensions - */
         width: 100%;
         height: 100%;
         background: darken($main-color, 10%);
@@ -70,8 +79,27 @@ html, body {
             transform: scale(80%);
         }
     }
+}
+
+#milk_container {
+    overflow: hidden;
+    z-index: -1;
     
-    
+    #milk {
+        /* - milk with animation - */
+        position: absolute;
+        overflow: hidden;
+        background-color: #ffffffee;
+        height: 40vh;
+        width: 100vw;
+        clip-path: polygon(51% 29%, 69% 35%, 86% 29%, 100% 35%, 100% 100%, 0 100%, 0 35%, 16% 29%, 32% 35%);
+        animation: milkflow 3.2s linear infinite alternate;
+    }
+}
+
+@keyframes milkflow {
+    from {left: -20%;}
+    to {left: 20%;}
 }
 
 .item {

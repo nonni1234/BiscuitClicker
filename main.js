@@ -18,6 +18,69 @@ var app = new Vue({
                 increase: 1
             },
             {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
+                index: 0,
+                title: "Grandma",
+                price: 10,
+                amount: 0,
+                increase: 1
+            },
+            {
                 index: 1,
                 title: "Farm",
                 price: 100,
