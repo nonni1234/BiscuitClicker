@@ -1,30 +1,6 @@
 function Increment() {
     app.cookies += app.cps;
 }
-/*
-function Clicked() {
-    app.cookies += app.cpc;
-    cookie.setAttribute("class","cookie-clicked");
-}
-function Release() {
-    cookie.setAttribute("class","cookie");
-}
-*/
-
-function Buy(e) {
-    var target = e.target;
-    while(target.className != "item") {
-        target = target.parentElement;
-    }
-    var index = parseInt(target.querySelector(".index").textContent);
-    console.log(index);
-    var it = app.items[index];
-    if (app.cookies >= it.price) {
-        app.cookies -= it.price;
-        app.cps += it.increase;
-        it.amount += 1;
-    }
-}
 
 var app = new Vue({
     el: "#game",
@@ -52,8 +28,34 @@ var app = new Vue({
     },
 
     methods: {
-        /* - setja functions hérna - */
+        order: function(index, amount_ordered, event) {
+            /* - if event target not include item class go up to parent el until item is found - */
+            let target = event.target;
+            while (!(target.classList.contains('item'))) {
+                target = target.parentElement;
+            }
 
+            /* - if item is purchasable - */
+            if (target.classList.contains('purchasable')) {
+                /* - konni123 - */
+                let konni123 = this.items[index];
+
+                /* - checks cookies and buys item - */
+                if (this.cookies >= konni123.price) {
+                    /* - remove cookies from wallet - */
+                    this.cookies -= konni123.price;
+
+                    /* - increase cookies per second gained - */
+                    this.cps += konni123.increase;
+
+                    /* - finally adds the amount of items baught to item count - */
+                    konni123.amount += amount_ordered;
+
+                    /* - inflation - */
+                    konni123.price += konni123.price / 10
+                }            
+            }
+        }
     }
 
 })
@@ -62,20 +64,3 @@ var cookie = document.getElementById("cookie");
 
 setInterval(Increment,1000);
 
-/* Shop event listeners */
-
-var shoplist = document.getElementsByClassName("item");
-console.log(shoplist);
-
-var shoparr = [...shoplist];
-
-for (var i = 0; i < shoparr.length; i++) {
-    var tal = parseInt(shoparr[i].querySelector("span").textContent);
-    shoparr[i].addEventListener("click", Buy);
-}
-
-/* --- *
-
-cookie.addEventListener("mousedown",Clicked);
-cookie.addEventListener("mouseup",Release);
-*/
