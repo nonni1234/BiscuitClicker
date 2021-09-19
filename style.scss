@@ -97,11 +97,6 @@ html, body {
     }
 }
 
-@keyframes milkflow {
-    from {left: -20%;}
-    to {left: 20%;}
-}
-
 .item {
     /* - border - */
     border: solid 7px #f7f7f7;
@@ -146,4 +141,10 @@ html, body {
     &:hover {
         cursor: pointer;
     }
+}
+
+/* - milky animation - */
+@keyframes milkflow {
+    from {left: -20%;}
+    to {left: 20%;}
 }
