@@ -94,6 +94,7 @@ var app = new Vue({
         order: function(index, amount_ordered, event) {
             /* - if event target not include item class go up to parent el until item is found - */
             let target = event.target;
+            let inflation = 0.1;
             while (!(target.classList.contains('item'))) {
                 target = target.parentElement;
             }
@@ -104,18 +105,18 @@ var app = new Vue({
                 let konni123 = this.items[index];
 
                 /* - checks cookies and buys item - */
-                if (this.cookies >= konni123.price) {
+                if (this.cookies >= (konni123.price*(1+inflation)**amount_ordered-1)) {
                     /* - remove cookies from wallet - */
                     this.cookies -= konni123.price;
 
                     /* - increase cookies per second gained - */
-                    this.cps += konni123.increase;
+                    this.cps += konni123.increase * amount_ordered;
 
-                    /* - finally adds the amount of items baught to item count - */
+                    /* - finally adds the amount of items bought to item count - */
                     konni123.amount += amount_ordered;
 
                     /* - inflation - */
-                    konni123.price += konni123.price / 10
+                    konni123.price = konni123.price*(1+inflation)**amount_ordered
                 }            
             }
         }

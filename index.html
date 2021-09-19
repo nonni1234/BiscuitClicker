@@ -25,12 +25,12 @@
 
     
     <div id="right">
+        <div id="amount"><input type="radio"></div>
         <div 
         v-for="(item, index) in items" :key="index" 
         class="item"
         :class="{'purchasable' : cookies >= item.price}" 
-        v-on:click="order(index, 1, $event)"
-        >
+        v-on:click="order(index, 1, $event)">  <!-- TODO: adjust highlighting to include amount bought -->
             <div class="item-left">
                 {{ item.title }}<br>
                 {{ item.price.toFixed(1) }}
