@@ -1,5 +1,16 @@
 function Increment() {
     app.cookies += app.cps;
+    SaveGame();
+}
+function clearLocal() { /* Clears local (Only for production) */
+    localStorage.clear();
+    window.location.reload(true);
+}
+function SaveGame() {
+    localStorage.cookies = app.cookies;
+    localStorage.cps = app.cps;
+    localStorage.cpc = app.cpc;
+    localStorage.items = JSON.stringify(app.items);
 }
 
 var app = new Vue({
@@ -89,7 +100,12 @@ var app = new Vue({
             }
         ]
     },
-
+    mounted: function() { /* Runs when this object is created */
+        if (localStorage.cookies) this.cookies = parseInt(localStorage.cookies);
+        if (localStorage.cps) this.cps = parseInt(localStorage.cps);
+        if (localStorage.cpc) this.cpc = parseInt(localStorage.cpc);
+        if (localStorage.items) this.items = JSON.parse(localStorage.items);
+    },
     methods: {
         order: function(index, amount_ordered, event) {
             /* - if event target not include item class go up to parent el until item is found - */
