@@ -27,17 +27,23 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             cpc: 1,
             items: info.items
         },
+
         mounted: function() { /* Runs when this object is created */
             if (localStorage.cookies) this.cookies = parseInt(localStorage.cookies);
             if (localStorage.cps) this.cps = parseInt(localStorage.cps);
             if (localStorage.cpc) this.cpc = parseInt(localStorage.cpc);
             if (localStorage.items) this.items = JSON.parse(localStorage.items);
+            setInterval(this.increment, 100);
         },
+
         methods: {
-            order: function(index, amount_ordered, event) {
+            /* - purchases an item frome itemlist - */
+            order: function (index, amount_ordered, event) {
+                /* - inflation var - */
+                let inflation = 0.1;
+
                 /* - if event target not include item class go up to parent el until item is found - */
                 let target = event.target;
-                let inflation = 0.1;
                 while (!(target.classList.contains('item'))) {
                     target = target.parentElement;
                 }
@@ -62,14 +68,17 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
                         konni123.price = konni123.price*(1+inflation)**amount_ordered
                     }            
                 }
+            },
+
+            /* - adds cookies per cps - */
+            increment: function () {
+                this.cookies += (this.cps / 10);
             }
+
         }
-    
     })
     
     var cookie = document.getElementById("cookie");
-    
-    setInterval(Increment,1000);
 })
 
 
