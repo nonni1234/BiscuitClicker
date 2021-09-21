@@ -3,7 +3,6 @@ function clearLocal() { /* Clears local (Only for production) */
     window.location.reload(true);
 }
 
-
 function getJSON(path) {
     return fetch(path).then(response => response.json());
 }
