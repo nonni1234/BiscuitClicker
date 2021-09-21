@@ -1,4 +1,11 @@
-function clearLocal() { /* Clears local (Only for production) */
+/*
+    "we gaming gamers
+     We dropping tilted towers
+     esketit my homie slice"
+        - Nonni og Ragnar
+*/
+
+function clearLocal() { // Clears local (Only for production) 
     localStorage.clear();
     window.location.reload(true);
 }
@@ -16,7 +23,8 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             cookies: 0,
             cps: 0,
             cpc: 1,
-            items: info.items
+            items: info.items,
+            trophies: info.trophies
         },
         
         /* Runs when this object is created */
@@ -27,6 +35,7 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             if (localStorage.cps) this.cps = parseInt(localStorage.cps);
             if (localStorage.cpc) this.cpc = parseInt(localStorage.cpc);
             if (localStorage.items) this.items = JSON.parse(localStorage.items);
+            if (localStorage.trophies) this.trophies = JSON.parse(localStorage.trophies);
             
             /* - intervals - */
             setInterval(this.increment, 100); // adds tenth of cps every one tenth of a second
@@ -78,12 +87,10 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
                 localStorage.cps = this.cps;
                 localStorage.cpc = this.cpc;
                 localStorage.items = JSON.stringify(this.items);
+                localStorage.trophies = JSON.stringify(this.trophies);
             }
-
         }
     })
-    
-    var cookie = document.getElementById("cookie");
 })
 
 

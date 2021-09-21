@@ -1,22 +1,44 @@
 {
     "items": [
         {
+            "id": "ct",
             "title": "Clicky thingy",
             "price": 5,
             "amount": 0,
             "increase": 0.2
         },
         {
+            "id": "nc",
             "title": "Nutcracker",
             "price": 50,
             "amount": 0,
             "increase": 1
         },
         {
+            "id": "nt",
             "title": "Nut tree",
             "price": 100,
             "amount": 0,
             "increase": 5
+        }
+    ],
+
+    "trophies": [
+        {
+            "title": "Touchy",
+            "desc": "Own 5 clicky thingies",
+            "earned": false,
+            "value": 5,
+            "class": "item_amount",
+            "item_id": "ct"
+        },
+        {
+            "title": "NUTS",
+            "desc": "Earn 5 nuts",
+            "earned": false,
+            "value": 5,
+            "class": "nut_earning",
+            "item_id": null
         }
     ]
 }
