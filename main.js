@@ -24,7 +24,8 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             cps: 0,
             cpc: 1,
             items: info.items,
-            trophies: info.trophies
+            trophies: info.trophies,
+            amount_ordered: 1
         },
         
         /* Runs when this object is created */
@@ -42,11 +43,22 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             setInterval(this.save_game, 30000); // saves the game every 30 seconds
         },
 
+        computed: {
+            
+        },
+
         methods: {
+            /* - floors numbers - */
+            floor: function (num) {
+                return Math.floor(num)
+            },
+
             /* - purchases an item frome itemlist - */
             order: function (index, amount_ordered, event) {
                 /* - inflation var - */
                 let inflation = 0.1;
+
+                
 
                 /* - if event target not include item class go up to parent el until item is found - */
                 let target = event.target;
@@ -71,7 +83,7 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
                         konni123.amount += amount_ordered;
     
                         /* - inflation - */
-                        konni123.price = konni123.price*(1+inflation)**amount_ordered
+                        konni123.price = konni123.price*(1+inflation)**amount_ordered;
                     }            
                 }
             },
