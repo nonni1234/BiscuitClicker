@@ -146,7 +146,20 @@ html, body {
 /* - radial buttons - */
 #amount {
     transition: 220s;
+    
+    label {
+        display: inline-block;
+        background-color: lighten($main-color, 60%);
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 2px solid darken($main-color, 40%);
+        border-radius: 4px;
 
+        &:hover {
+            background-color: lighten($main-color, 10%);
+        }
+    }
+    
     input[type="radio"] {
         opacity: 0;
         position: fixed;
@@ -162,18 +175,6 @@ html, body {
         }
     }
 
-    label {
-        display: inline-block;
-        background-color: lighten($main-color, 60%);
-        padding: 10px 20px;
-        font-size: 16px;
-        border: 2px solid darken($main-color, 40%);
-        border-radius: 4px;
-
-        &:hover {
-            background-color: lighten($main-color, 10%);
-        }
-    }
 }
 
 /* - milky animation - */
