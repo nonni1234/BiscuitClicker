@@ -1,81 +1,22 @@
 {
     "items": [
         {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
+            "title": "Clicky thingy",
+            "price": 5,
+            "amount": 0,
+            "increase": 0.2
+        },
+        {
+            "title": "Nutcracker",
+            "price": 50,
             "amount": 0,
             "increase": 1
         },
         {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 0,
-            "title": "Grandma",
-            "price": 10,
-            "amount": 0,
-            "increase": 1
-        },
-        {
-            "index": 1,
-            "title": "Farm",
+            "title": "Nut tree",
             "price": 100,
             "amount": 0,
-            "increase": 10
+            "increase": 5
         }
     ]
 }
