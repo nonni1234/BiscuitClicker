@@ -1,17 +1,8 @@
-function Increment() {
-    app.cookies += app.cps;
-    SaveGame();
-}
 function clearLocal() { /* Clears local (Only for production) */
     localStorage.clear();
     window.location.reload(true);
 }
-function SaveGame() {
-    localStorage.cookies = app.cookies;
-    localStorage.cps = app.cps;
-    localStorage.cpc = app.cpc;
-    localStorage.items = JSON.stringify(app.items);
-}
+
 
 function getJSON(path) {
     return fetch(path).then(response => response.json());
@@ -21,19 +12,26 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
     var app = new Vue({
         el: "#game",
         
+        /* - app data - */
         data: {
             cookies: 0,
             cps: 0,
             cpc: 1,
             items: info.items
         },
+        
+        /* Runs when this object is created */
+        mounted: function() { 
 
-        mounted: function() { /* Runs when this object is created */
+            /* - loads the game vars from local storage - */
             if (localStorage.cookies) this.cookies = parseInt(localStorage.cookies);
             if (localStorage.cps) this.cps = parseInt(localStorage.cps);
             if (localStorage.cpc) this.cpc = parseInt(localStorage.cpc);
             if (localStorage.items) this.items = JSON.parse(localStorage.items);
-            setInterval(this.increment, 100);
+            
+            /* - intervals - */
+            setInterval(this.increment, 100); // adds tenth of cps every one tenth of a second
+            setInterval(this.save_game, 30000); // saves the game every 30 seconds
         },
 
         methods: {
@@ -73,6 +71,14 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             /* - adds cookies per cps - */
             increment: function () {
                 this.cookies += (this.cps / 10);
+            },
+
+            /* - saves all the game variables - */
+            save_game: function () {
+                localStorage.cookies = this.cookies;
+                localStorage.cps = this.cps;
+                localStorage.cpc = this.cpc;
+                localStorage.items = JSON.stringify(this.items);
             }
 
         }
