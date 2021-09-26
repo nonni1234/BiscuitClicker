@@ -98,6 +98,8 @@ html, body {
 }
 
 .item {
+    user-select: none;
+
     /* - border - */
     border: solid 7px #f7f7f7;
     border-radius: 17px;
