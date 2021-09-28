@@ -98,6 +98,7 @@ html, body {
 }
 
 .item {
+    /* - remove the user select - */
     user-select: none;
 
     /* - border - */
@@ -147,6 +148,9 @@ html, body {
 
 /* - radial buttons - */
 #amount {
+    /* - remove the user select - */
+    user-select: none;
+
     transition: background-color 10s; // not work
 
     label {
