@@ -11,7 +11,10 @@
 <body>
     
 <div id="game">
-    <div id="left"><button onclick="clearLocal()">Clear localstorage(just for production)</button></div>
+    <div id="left">
+        <button onclick="clearLocal()">Clear localstorage(just for production)</button>
+    </div>
+
     <div id="center">
         <div id="container">
             <div id="cookie" v-on:click="cookies += cpc"></div>
@@ -34,23 +37,28 @@
             <label for="radial_100x">100x</label>
         </div>
         <div 
-        v-for="(item, index) in items" :key="index" 
-        class="item"
-        :class="{'purchasable' : cookies >= item.price * parseInt(amount_ordered)}" 
-        v-on:click="order(index, parseInt(amount_ordered), $event)">
+            v-for="(item, index) in items" :key="index" 
+            class="item"
+            :class="{'purchasable' : cookies >= item.price * parseInt(amount_ordered)}"     
+            v-on:click="order(index, parseInt(amount_ordered), $event)"
+        >
+            <div class="item-img">
+
+            </div>
+
             <div class="item-left">
                 {{ item.title }}<br>
-                {{ floor(item.price) * amount_ordered }}
+                {{ floor(inflation_calc(item.price)) }} <!-- does not account for inflation :flushed: eg skil ekki stærðfræði nonni -->
             </div>
+
             <div class="item-right">
                 {{ item.amount }}
             </div>
         </div>
     </div>
+
 </div>
 
-    
-    
 </div>
 <script src="main.js"></script>
 </body>

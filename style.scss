@@ -107,12 +107,10 @@ html, body {
 
     /* - gridding - */
     display: grid;
-    grid-template-columns: "40% 60%";
-    grid-template-areas: "left right";
+    grid-template-columns: "20% 40% 40%";
+    grid-template-areas: "img left right";
     
-    /* - sizing - */
-    padding: 2em;
-    margin: .5em;
+    
     
     /* - text - */
     font-size: 1.5em;
@@ -122,10 +120,24 @@ html, body {
     /* - background - */
     background: lighten($main-color, 25%);
 
+    /* - sizing - */
+    padding: 2em;
+    margin: .5em;
+
     /* - when item is purchasable by player - */
     &.purchasable {
         background: $main-color;
         opacity: 100%;
+    }
+
+    /* - item image - */
+    .item-img {
+        margin: 0;
+        padding: 0;
+        background-color: red;
+        background-image: url('/src/images/grandpa.png');
+        
+        grid-area: img;
     }
 
     /* - left side - */
