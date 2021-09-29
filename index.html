@@ -44,18 +44,23 @@
             :class="{'purchasable' : cookies >= cost(item) }"     
             v-on:click="order(index, $event)"
         >
-            <div class="item-img">
-
+            <div class="item_img_conainer">
+                <div class="item_img">
+                    
+                </div>
             </div>
 
-            <div class="item-left">
-                {{ item.title }}<br>
-                {{ cost(item) }}
+            <div class="item_frame">
+                <div class="item_left">
+                    {{ item.title }}<br>
+                    {{ cost(item) }}
+                </div>
+    
+                <div class="item_right">
+                    {{ item.amount }}
+                </div>
             </div>
-
-            <div class="item-right">
-                {{ item.amount }}
-            </div>
+            
         </div>
     </div>
 
