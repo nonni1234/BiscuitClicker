@@ -24,7 +24,7 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             inflation: 1.1, // controls inflation :flushed:
 
             /* - flexible data - */
-            amount_ordered: "1", // used to determine how much of an item is ordered at once
+            item_amount_ordered: "1", // used to determine how much of an item is ordered at once
 
             /* - user data - */
             cookies: 0, // wallet
@@ -52,7 +52,7 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
         computed: {
             /* - parses amount from string to int - */
             amount_int: function () {
-                return parseInt(this.amount_ordered)
+                return parseInt(this.item_amount_ordered)
             }
         },
 
@@ -86,7 +86,6 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
 
                     /* - amount ordered - */
                     let amount_ordered = this.amount_int;
-                    console.log(amount_ordered)
 
                     /* - konni123 - */
                     let konni123 = this.items[index];

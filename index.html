@@ -12,7 +12,9 @@
     
 <div id="game">
     <div id="left">
-        <button onclick="clearLocal()">Clear localstorage(just for production)</button>
+        <button onclick="clearLocal()">Clear localstorage(just for production)</button> <hr>
+        <input type="number" v-model="add_cookies_cheat">
+        <button v-on:click="cookies += parseInt(add_cookies_cheat)">add cookies</button>
     </div>
 
     <div id="center">
@@ -29,11 +31,11 @@
     
     <div id="right">
         <div id="amount">
-            <input type="radio" v-model="amount_ordered" value="1" id="radial_1x" checked>
+            <input type="radio" v-model="item_amount_ordered" value="1" id="radial_1x" checked>
             <label for="radial_1x">1x</label>
-            <input type="radio" v-model="amount_ordered" value="10" id="radial_10x">
+            <input type="radio" v-model="item_amount_ordered" value="10" id="radial_10x">
             <label for="radial_10x">10x</label>
-            <input type="radio" v-model="amount_ordered" value="100" id="radial_100x">
+            <input type="radio" v-model="item_amount_ordered" value="100" id="radial_100x">
             <label for="radial_100x">100x</label>
         </div>
         <div 
