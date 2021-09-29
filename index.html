@@ -39,8 +39,8 @@
         <div 
             v-for="(item, index) in items" :key="index" 
             class="item"
-            :class="{'purchasable' : cookies >= item.price * parseInt(amount_ordered)}"     
-            v-on:click="order(index, parseInt(amount_ordered), $event)"
+            :class="{'purchasable' : cookies >= cost(item) }"     
+            v-on:click="order(index, $event)"
         >
             <div class="item-img">
 
@@ -48,7 +48,7 @@
 
             <div class="item-left">
                 {{ item.title }}<br>
-                {{ floor(inflation_calc(item.price)) }} <!-- does not account for inflation :flushed: eg skil ekki stærðfræði nonni -->
+                {{ cost(item) }}
             </div>
 
             <div class="item-right">

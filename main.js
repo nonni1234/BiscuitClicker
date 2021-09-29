@@ -24,7 +24,7 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
             inflation: 1.1, // controls inflation :flushed:
 
             /* - flexible data - */
-            amount_ordered: 1, // used to determine how much of an item is ordered at once
+            amount_ordered: "1", // used to determine how much of an item is ordered at once
 
             /* - user data - */
             cookies: 0, // wallet
@@ -50,27 +50,31 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
         },
 
         computed: {
-            
+            /* - parses amount from string to int - */
+            amount_int: function () {
+                return parseInt(this.amount_ordered)
+            }
         },
 
         methods: {
-            inflation_calc: function (price) {
-                let ret = 0
-                for (let T = 0; T < this.amount_ordered; T++) {
-                    ret += price;
-                    price = price * this.inflation;
-                    console.log(T, ret, price, price * this.inflation);
+            /* - returns the cost of inputted item based on how much of that item u own - */
+            cost: function (item) {
+                let result = 0;
+                /* - my mind is mega i am genius - */
+                for (let T = 0; T < this.amount_int; T++) {
+                    result += Math.floor(item.price * Math.pow(this.inflation, item.amount + T))
                 }
-                return ret
+
+                return result
             },
 
             /* - floors numbers - */
             floor: function (num) {
-                return Math.floor(num)
+                return Math.floor(num);
             },
 
             /* - purchases an item frome itemlist - */
-            order: function (index, amount_ordered, event) {
+            order: function (index, event) {
                 /* - if event target not include item class go up to parent el until item is found - */
                 let target = event.target;
                 while (!(target.classList.contains('item'))) {
@@ -79,25 +83,27 @@ getJSON("./src/data/data.json").then(info => { // Asynchronous fetching from jso
     
                 /* - if item is purchasable - */
                 if (target.classList.contains('purchasable')) {
-                    /* - inflation - */
-                    let infl = this.inflation_calc(konni123.price) 
+
+                    /* - amount ordered - */
+                    let amount_ordered = this.amount_int;
+                    console.log(amount_ordered)
 
                     /* - konni123 - */
                     let konni123 = this.items[index];
+
+                    /* - cost of item - */
+                    let c = this.cost(konni123);
     
                     /* - checks cookies and buys item - */
-                    if (this.cookies >= (infl)) {
+                    if (this.cookies >= (c)) {
                         /* - remove cookies from wallet - */
-                        this.cookies -= infl;
+                        this.cookies -= c;
     
                         /* - increase cookies per second gained - */
                         this.cps += konni123.increase * amount_ordered;
     
                         /* - finally adds the amount of items bought to item count - */
                         konni123.amount += amount_ordered;
-    
-                        /* - inflation - */
-                        konni123.price = infl;
                     }            
                 }
             },
